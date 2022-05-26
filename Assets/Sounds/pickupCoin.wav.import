@@ -2,12 +2,13 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/pickupCoin.wav-896554e5205060719a0a49ba7cd2898b.sample"
+uid="uid://t28fqelcjy0d"
+path="res://.godot/imported/pickupCoin.wav-896554e5205060719a0a49ba7cd2898b.sample"
 
 [deps]
 
 source_file="res://Assets/Sounds/pickupCoin.wav"
-dest_files=[ "res://.import/pickupCoin.wav-896554e5205060719a0a49ba7cd2898b.sample" ]
+dest_files=["res://.godot/imported/pickupCoin.wav-896554e5205060719a0a49ba7cd2898b.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0
