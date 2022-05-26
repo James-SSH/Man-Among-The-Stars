@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_right = 1014.0
+margin_bottom = 594.0
+size_flags_stretch_ratio = 7.26
+text = "IT WRKED"
+readonly = true

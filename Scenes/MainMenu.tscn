@@ -1,3 +1,33 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/NGbutton.cs" type="Script" id=1]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="New Game" type="TextureButton" parent="Camera2D"]
+margin_left = -508.0
+margin_top = 64.0
+margin_right = -332.0
+margin_bottom = 104.0
+hint_tooltip = "New Game"
+stretch_mode = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "New Game"
+}
+
+[node name="Options" type="TextureButton" parent="Camera2D"]
+margin_left = -501.0
+margin_top = 120.0
+margin_right = -346.0
+margin_bottom = 160.0
+
+[node name="Extra" type="TextureButton" parent="Camera2D"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="End Game" type="TextureButton" parent="Camera2D"]
+margin_right = 40.0
+margin_bottom = 40.0
