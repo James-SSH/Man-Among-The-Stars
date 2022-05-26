@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "PLTpk5D1oGGS6qajXJ6EP2RbzKCB6r5R61P4P9nNwdSXBiTCjDX22oQC7yMz/vvEJuQBjk4YhGy2Ywzf62E7NA==",
+  "success": true,
+  "projectFilePath": "/home/james0ssh/Documents/Coding/CS/TopDownShooter/Top Down Shooter.csproj",
+  "expectedPackageFiles": [
+    "/home/james0ssh/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/james0ssh/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
