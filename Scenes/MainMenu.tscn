@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://jvoifnh3hliy"]
 
-[ext_resource path="res://Scripts/QuitGame.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/NewGame.cs" type="Script" id=2]
+[ext_resource type="Script" path="res://Scripts/QuitGame.cs" id="1"]
+[ext_resource type="Script" path="res://Scripts/NewGame.cs" id="2"]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -10,42 +10,48 @@ anchor_bottom = 1.0
 [node name="New Game" type="Button" parent="."]
 anchor_right = 0.041
 anchor_bottom = 0.19
-margin_left = 4.0
-margin_top = 170.0
-margin_right = 254.016
-margin_bottom = 116.0
+offset_top = 121.0
+offset_right = 363.016
+offset_bottom = 70.0
 text = "New Game"
-script = ExtResource( 2 )
+script = ExtResource( "2" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
 
 [node name="Load Game" type="Button" parent="."]
 anchor_right = 0.041
 anchor_bottom = 0.19
-margin_left = 46.0
-margin_top = 288.0
-margin_right = 296.016
-margin_bottom = 234.0
+offset_left = -1.0
+offset_top = 221.0
+offset_right = 361.016
+offset_bottom = 161.0
 text = "Load Game"
-script = ExtResource( 1 )
+script = ExtResource( "1" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
 
 [node name="Settings" type="Button" parent="."]
 anchor_right = 0.041
 anchor_bottom = 0.19
-margin_left = 60.0
-margin_top = 426.0
-margin_right = 310.016
-margin_bottom = 372.0
+offset_top = 415.0
+offset_right = 366.016
+offset_bottom = 367.0
 text = "Settings"
-script = ExtResource( 1 )
+script = ExtResource( "1" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
 
 [node name="Quit" type="Button" parent="."]
 anchor_right = 0.041
 anchor_bottom = 0.19
-margin_left = 52.0
-margin_top = 530.0
-margin_right = 302.016
-margin_bottom = 476.0
+offset_left = -2.0
+offset_top = 493.0
+offset_right = 371.016
+offset_bottom = 433.0
 text = "Quit"
-script = ExtResource( 1 )
+script = ExtResource( "1" )
+metadata/_edit_layout_mode = 1
+metadata/_edit_use_custom_anchors = true
 
 [connection signal="pressed" from="New Game" to="New Game" method="_on_NewGame_pressed"]
 [connection signal="pressed" from="Quit" to="Quit" method="_on_Quit_pressed"]
