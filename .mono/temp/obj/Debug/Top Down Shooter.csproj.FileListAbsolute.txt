@@ -1,9 +1,0 @@
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.csproj.AssemblyReference.cache
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.GeneratedMSBuildEditorConfig.editorconfig
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.AssemblyInfoInputs.cache
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.AssemblyInfo.cs
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.csproj.CoreCompileInputs.cache
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/bin/Debug/Top Down Shooter.dll
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/bin/Debug/Top Down Shooter.pdb
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.dll
-/home/james0ssh/Documents/Coding/CS/TopDownShooter/.mono/temp/obj/Debug/Top Down Shooter.pdb
