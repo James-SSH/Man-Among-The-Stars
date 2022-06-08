@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/punchHurt.wav-9f6221e672c0cf7e2ab64d112997ef6b.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/punchHurt.wav"
+dest_files=[ "res://.import/punchHurt.wav-9f6221e672c0cf7e2ab64d112997ef6b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
