@@ -1,0 +1,5 @@
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.csproj.AssemblyReference.cache
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.AssemblyInfoInputs.cache
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.AssemblyInfo.cs
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.csproj.CoreCompileInputs.cache
