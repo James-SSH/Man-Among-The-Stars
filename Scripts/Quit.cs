@@ -3,9 +3,11 @@ using System;
 
 public class Quit : TextureButton
 {
-    //TODO: Fix exit button
-    private void on_Quit_pressed(){
-        GetTree.Quit();
+    public override void _Ready() {
+        GetTree().SetAutoAcceptQuit(true);
+    }
+    private void _on_Quit_pressed(){
+        GetTree().Notification(MainLoop.NotificationWmQuitRequest);
     }
 
 
