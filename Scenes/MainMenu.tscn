@@ -73,6 +73,7 @@ margin_top = 24.0
 margin_right = 106.0
 margin_bottom = 64.0
 rect_scale = Vector2( 2.41, 2.177 )
+mouse_filter = 1
 text = "Quit"
 
 [connection signal="pressed" from="Control/Quit" to="Control/Quit" method="_on_Quit_pressed"]

@@ -3,3 +3,7 @@ C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among
 C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.AssemblyInfoInputs.cache
 C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.AssemblyInfo.cs
 C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.csproj.CoreCompileInputs.cache
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\bin\Debug\Man Among The Stars.dll
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\bin\Debug\Man Among The Stars.pdb
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.dll
+C:\Users\chris.zappia\Desktop\Man-Among-The-Stars\.mono\temp\obj\Debug\Man Among The Stars.pdb
