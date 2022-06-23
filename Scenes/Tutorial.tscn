@@ -13,6 +13,7 @@ extents = Vector2( 15.965, 15.971 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
+speed = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource( 1 )

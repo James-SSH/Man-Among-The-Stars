@@ -5,5 +5,6 @@ public class NewGame : TextureButton {
 
 private void _on_New_Game_pressed(){
     GetTree().ChangeScene("res://Scenes/SaveMenu.tscn");
+    GD.Print("Pressed");
 }    
 }

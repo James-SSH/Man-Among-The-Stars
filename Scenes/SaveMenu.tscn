@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Textures/ButtonImageTextureBase.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Save_1_Label.cs" type="Script" id=2]
-[ext_resource path="res://Scenes/Save_1.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/Save_1.cs" type="Script" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -74,3 +74,5 @@ margin_bottom = 59.0
 rect_scale = Vector2( 2.272, 2.272 )
 text = "Back
 "
+
+[connection signal="pressed" from="Save_1" to="Save_1" method="_on_Save_1_pressed"]
