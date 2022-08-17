@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/TutorialRoot.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/BulletManager.cs" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="TutorialRoot" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 523, 265 )
+
+[node name="BulletManager" type="Node2D" parent="."]
+position = Vector2( 523, 265 )
+script = ExtResource( 3 )
+
+[connection signal="PlayerFiredBullet" from="Player" to="BulletManager" method="HandleBulletSpawned"]

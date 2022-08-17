@@ -415,19 +415,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chris\\.nuget\\packages\\": {}
+    "C:\\Users\\chris.zappia\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chris\\Documents\\Coding\\C#\\Man-Among-The-Stars\\Man Among The Stars.csproj",
+      "projectUniqueName": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj",
       "projectName": "Man Among The Stars",
-      "projectPath": "C:\\Users\\chris\\Documents\\Coding\\C#\\Man-Among-The-Stars\\Man Among The Stars.csproj",
-      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chris\\Documents\\Coding\\C#\\Man-Among-The-Stars\\.mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj",
+      "packagesPath": "C:\\Users\\chris.zappia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\chris.zappia\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net472"
@@ -458,7 +458,7 @@
             "autoReferenced": true
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-preview.6.22352.1\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
