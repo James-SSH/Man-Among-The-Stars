@@ -32,3 +32,5 @@ texture = ExtResource( 2 )
 shape = SubResource( 2 )
 
 [node name="TiggerDiscipline" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true

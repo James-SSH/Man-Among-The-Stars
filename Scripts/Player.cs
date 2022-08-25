@@ -65,6 +65,8 @@ public class Player : KinematicBody2D
             Vector2 directionToMouse = (GunDirection.GlobalPosition - GunPoint.GlobalPosition).Normalized();
             EmitSignal("PlayerFiredBullet", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
             cooldown.Start();
+            GD.Print("Cooldown Started");
+            GD.Print(cooldown);
         }
     }
 
