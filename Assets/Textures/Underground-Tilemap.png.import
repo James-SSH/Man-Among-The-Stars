@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WallSpriteshit.bmp-e43129b50eb511434fc19421b66ef6ba.stex"
+path="res://.import/Underground-Tilemap.png-1a73c7d264a18fdbd5a5f56e806dba0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/WallSpriteshit.bmp"
-dest_files=[ "res://.import/WallSpriteshit.bmp-e43129b50eb511434fc19421b66ef6ba.stex" ]
+source_file="res://Assets/Textures/Underground-Tilemap.png"
+dest_files=[ "res://.import/Underground-Tilemap.png-1a73c7d264a18fdbd5a5f56e806dba0a.stex" ]
 
 [params]
 

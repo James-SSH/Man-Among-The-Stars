@@ -1,2 +1,2 @@
-﻿53120
-C:/Users/chris.zappia/Documents/Godot_v3.5-stable_mono_win64/Godot_v3.5-stable_mono_win64.exe
+﻿45011
+/opt/godot-mono-bin/godot/Godot_v3.5-stable_mono_x11.64
