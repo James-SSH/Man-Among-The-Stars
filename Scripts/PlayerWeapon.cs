@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class Weapon : Node
+public class PlayerWeapon : Node
 {
     public PackedScene heldWeapon;
     private KinematicBody2D player;
@@ -12,18 +12,19 @@ public class Weapon : Node
     private Position2D GunPoint;
     private Position2D GunDirection;
     private Timer cooldown;
+    public Node weapon;
 
-    [Signal] delegate void PlayerFiredBullet(PistolBullet bullet, Vector2 position, Vector2 direction);
+    [Signal] delegate void WeaponFired(PistolBullet bullet, Vector2 position, Vector2 direction);
     //private PackedScene[] AvaliableBulletTypes;
 
 
     public override void _Ready()
     {
         base._Ready();
-        player = GetNode<KinematicBody2D>("Player");
         GunPoint = GetNode<Position2D>("PlayerGunBarrel");
         GunDirection = GetNode<Position2D>("GunDirection");
-        cooldown = GetNode<Timer>("TiggerDiscipline");
+        cooldown = GetNode<Timer>("TriggerDiscipline");
+        weapon = GetNode<Node>("Weapon");
         initaliseWeapons();
     }
 
@@ -38,7 +39,7 @@ public class Weapon : Node
         {
             PistolBullet bulletInstance = (PistolBullet)BulletType.Instance();
             Vector2 directionToMouse = (GunDirection.GlobalPosition - GunPoint.GlobalPosition).Normalized();
-            EmitSignal("PlayerFiredBullet", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
+            EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
             cooldown.Start();
             GD.Print("Cooldown Started");
             GD.Print(cooldown);

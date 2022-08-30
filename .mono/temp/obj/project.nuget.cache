@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "+rJE1Kt1aVcG7VsGbGq+SMwsdSIMo0H6kjEGWiCHYCfyQUpN45CvDbuui+dU9wDXS0Lr6J13ViCo5lnOt102Rw==",
+  "dgSpecHash": "ApqsgO2ANmw6lpHPiZJHCDwp7H/tUc494XG42JuurVAJdReqXZyZ3BT2pdEH41hjrEvH9EDfqnWqSIth6TapiA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj",
+  "projectFilePath": "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/Man Among The Stars.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\chris.zappia\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
-    "C:\\Users\\chris.zappia\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+    "/home/james0ssh/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/james0ssh/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.2/microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
   ],
   "logs": []
 }

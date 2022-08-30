@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Player_dev.png" type="Texture" id=2]
+[ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PlayerMetadata.cs" type="Script" id=4]
 [ext_resource path="res://Scripts/PlayerWeapon.cs" type="Script" id=5]
 
@@ -41,7 +42,10 @@ current = true
 
 [node name="Weapon" type="Node" parent="."]
 script = ExtResource( 5 )
+BulletType = ExtResource( 3 )
 
 [node name="Metadata" type="Node" parent="."]
 script = ExtResource( 4 )
 health = 100
+
+[connection signal="PlayerFiredBullet" from="Weapon" to="." method="PlayerFiredBullet"]

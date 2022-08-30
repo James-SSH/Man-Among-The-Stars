@@ -7,13 +7,16 @@ public class Player : KinematicBody2D
     [Export] public int speed = 120;
 
     public Vector2 velocity = new Vector2();
+    [Signal]
+    delegate void PlayerFiredBullet(PistolBullet bullet, Vector2 position, Vector2 direction);
+
 
     private Node playerWeapon;
 
     public override void _Ready()
     {
         base._Ready();
-        playerWeapon = GetNode<Node>("playerWeapon");
+        playerWeapon = GetNode<Node>("Weapon");
     }
 
     public void GetInput()
@@ -50,6 +53,9 @@ public class Player : KinematicBody2D
         }
     }
 
-
+    public void HandleBulletSpawned(PistolBullet bulletInstance, Vector2 GunPoint, Vector2 directionToMouse)
+    {
+        EmitSignal("HandleBulletSpawned", bulletInstance, GunPoint, directionToMouse);
+    }
 
 }

@@ -14,3 +14,5 @@ script = ExtResource( 4 )
 position = Vector2( 205, 6 )
 
 [node name="BulletManager" parent="." instance=ExtResource( 3 )]
+
+[connection signal="PlayerFiredBullet" from="Player" to="BulletManager" method="HandleBulletSpawned"]
