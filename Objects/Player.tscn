@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Player.png" type="Texture" id=2]
-[ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PlayerMetadata.cs" type="Script" id=4]
 [ext_resource path="res://Objects/Weapon.tscn" type="PackedScene" id=5]
 

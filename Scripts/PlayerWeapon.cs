@@ -3,16 +3,26 @@ using System;
 
 public class PlayerWeapon : Node2D
 {
+
+    public enum BulletIdentifier
+    {
+        PISTOL,
+        SMG,
+        AR,
+        HYPERRAY
+    }
+
     public PackedScene heldWeapon;
     private KinematicBody2D player;
     [Export] public PackedScene BulletType;
     private Position2D GunPoint;
     private Position2D GunDirection;
+    private String[] gunNames = { "Pistol", "SMG", "AR", "HyperRay" };
+    private Sprite[] guns;
     private Timer cooldown;
     public Node weapon;
-
-    [Signal] delegate void WeaponFired(PistolBullet bullet, Vector2 position, Vector2 direction);
-    //private PackedScene[] AvaliableBulletTypes;
+    public Node globalSignals;
+    public BulletIdentifier BulletID;
 
 
     public override void _Ready()
@@ -22,7 +32,15 @@ public class PlayerWeapon : Node2D
         GunDirection = GetNode<Position2D>("GunDirection");
         cooldown = GetNode<Timer>("TiggerDiscipline");
         weapon = this;
-        //initaliseWeapons();
+        globalSignals = GetTree().Root.GetNode<Node>("GlobalSignals");
+        for (int i = 0; i < gunNames.GetLength(4); i++)
+        {
+            guns[i] = GetNode<Sprite>(gunNames[i]);
+            if (guns[i].Visible && guns[i] != null)
+            {
+                BulletID = (BulletIdentifier)i;
+            }
+        }
     }
 
     private void initaliseWeapons()
@@ -34,12 +52,11 @@ public class PlayerWeapon : Node2D
     {
         if (cooldown.IsStopped())
         {
-            PistolBullet bulletInstance = (PistolBullet)BulletType.Instance();
+            Bullet bulletInstance = (Bullet)BulletType.Instance();
             Vector2 directionToMouse = (GunDirection.GlobalPosition - GunPoint.GlobalPosition).Normalized();
-            EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
+            globalSignals.EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse, BulletID);
             cooldown.Start();
             GD.Print("Cooldown Started");
-            GD.Print(bulletInstance, GunPoint.GlobalPosition, directionToMouse);
         }
     }
 }

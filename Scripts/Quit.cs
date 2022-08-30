@@ -5,7 +5,7 @@ public class Quit : TextureButton
 {
     public override void _Ready()
     {
-        GetTree().SetAutoAcceptQuit(true);
+        GetTree().AutoAcceptQuit = true;
     }
     private void _on_Quit_pressed()
     {

@@ -14,6 +14,10 @@ config/name="Man Among The Stars"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GlobalSignals="*res://Scripts/GlobalScripts/GlobalSignals.cs"
+
 [debug]
 
 settings/stdout/print_fps=true

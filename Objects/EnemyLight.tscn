@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/Textures/LE_Enemy_Moving.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Textures/Pistol.png" type="Texture" id=8]
 [ext_resource path="res://Scripts/LE_AI.cs" type="Script" id=9]
-[ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Bullet.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 16.254, 16.29 )

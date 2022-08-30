@@ -7,17 +7,15 @@ public class Player : KinematicBody2D
     [Export] public int speed = 120;
 
     public Vector2 velocity = new Vector2();
-    [Signal]
-    delegate void PlayerFiredBullet(PistolBullet bullet, Vector2 position, Vector2 direction);
-
 
     public Node2D playerWeapon;
+    public Node globalSignals;
 
     public override void _Ready()
     {
         base._Ready();
         playerWeapon = GetNode<Node2D>("Weapon");
-        playerWeapon.Connect("WeaponFired", this, "shoot");
+        globalSignals = GetTree().Root.GetNode<Node>("GlobalSignals");
     }
 
     public void GetInput()
@@ -52,10 +50,6 @@ public class Player : KinematicBody2D
         {
             playerWeapon.Call("Shoot");
         }
-    }
-
-    public void shoot(PistolBullet bulletinstance, Vector2 pos, Vector2 direction){
-        EmitSignal("PlayerFiredBullet", bulletinstance, pos, direction);
     }
 
 }
