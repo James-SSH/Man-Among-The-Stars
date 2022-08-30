@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/LE_Weapon.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/EnemyLight.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Textures/LE_Enemy_dev.png" type="Texture" id=4]
-[ext_resource path="res://Objects/LE_Metadata.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/LE_Metadata.cs" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16.508, 16.29 )
@@ -12,7 +12,6 @@ extents = Vector2( 16.508, 16.29 )
 extents = Vector2( 15.965, 15.971 )
 
 [node name="EnemyLight" type="KinematicBody2D"]
-position = Vector2( 523, 265 )
 z_index = 1
 script = ExtResource( 2 )
 

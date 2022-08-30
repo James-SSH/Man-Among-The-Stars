@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Textures/Player_dev.png" type="Texture" id=2]
-[ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/PlayerMetadata.cs" type="Script" id=4]
 [ext_resource path="res://Scripts/PlayerWeapon.cs" type="Script" id=5]
 
@@ -15,7 +14,6 @@ extents = Vector2( 15.965, 15.971 )
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
 script = ExtResource( 1 )
-BulletType = ExtResource( 3 )
 
 [node name="PlayerGunBarrel" type="Position2D" parent="."]
 position = Vector2( 21, 0 )

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj": {}
+    "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj": {}
   },
   "projects": {
-    "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj": {
+    "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj",
+        "projectUniqueName": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj",
         "projectName": "Man Among The Stars",
-        "projectPath": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj",
-        "packagesPath": "/home/james-ssh/.nuget/packages/",
-        "outputPath": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/.mono/temp/obj/",
+        "projectPath": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\Man Among The Stars.csproj",
+        "packagesPath": "C:\\Users\\chris.zappia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\chris.zappia\\Documents\\Man-Among-The-Stars\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/james-ssh/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\chris.zappia\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -45,7 +45,7 @@
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.108/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

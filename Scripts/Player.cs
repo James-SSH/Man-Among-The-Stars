@@ -5,22 +5,15 @@ public class Player : KinematicBody2D
 {
 
     [Export] public int speed = 120;
-    [Export] public PackedScene BulletType;
-    private Position2D GunPoint;
-    private Position2D GunDirection;
-    private Timer cooldown;
-
-    [Signal] delegate void PlayerFiredBullet(PistolBullet bullet, Vector2 position, Vector2 direction);
-    //private PackedScene[] AvaliableBulletTypes;
 
     public Vector2 velocity = new Vector2();
+
+    private Node playerWeapon;
 
     public override void _Ready()
     {
         base._Ready();
-        GunPoint = GetNode<Position2D>("PlayerGunBarrel");
-        GunDirection = GetNode<Position2D>("GunDirection");
-        cooldown = GetNode<Timer>("TiggerDiscipline");
+        playerWeapon = GetNode<Node>("playerWeapon");
     }
 
     public void GetInput()
@@ -53,21 +46,10 @@ public class Player : KinematicBody2D
     {
         if (@event.IsActionPressed("Shoot"))
         {
-            Shoot();
+            playerWeapon.Call("Shoot");
         }
     }
 
-    private void Shoot()
-    {
-        if (cooldown.IsStopped())
-        {
-            PistolBullet bulletInstance = (PistolBullet)BulletType.Instance();
-            Vector2 directionToMouse = (GunDirection.GlobalPosition - GunPoint.GlobalPosition).Normalized();
-            EmitSignal("PlayerFiredBullet", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
-            cooldown.Start();
-            GD.Print("Cooldown Started");
-            GD.Print(cooldown);
-        }
-    }
+
 
 }

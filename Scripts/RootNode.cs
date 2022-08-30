@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class TutorialRoot : Node2D
+public class RootNode : Node2D
 {
     public Node2D bulletmanager;
     public Node2D player;

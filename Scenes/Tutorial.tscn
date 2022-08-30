@@ -1,8 +1,8 @@
 [gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Assets/Textures/Player_dev.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/TutorialRoot.cs" type="Script" id=2]
-[ext_resource path="res://Scripts/BulletManager.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/RootNode.cs" type="Script" id=2]
+[ext_resource path="res://Objects/BulletManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player.cs" type="Script" id=4]
 [ext_resource path="res://Objects/EnemyLight.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=6]
@@ -154,9 +154,7 @@ script = ExtResource( 9 )
 position = Vector2( 381, 172 )
 rotation = 1.5708
 
-[node name="BulletManager" type="Node2D" parent="."]
-position = Vector2( 523, 265 )
-script = ExtResource( 3 )
+[node name="BulletManager" parent="." instance=ExtResource( 3 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 17 )
@@ -179,5 +177,3 @@ Potential Items:
 - Keycard
 - Gun
 - Ammo"
-
-[connection signal="PlayerFiredBullet" from="Player" to="BulletManager" method="HandleBulletSpawned"]
