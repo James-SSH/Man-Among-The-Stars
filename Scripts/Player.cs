@@ -11,12 +11,13 @@ public class Player : KinematicBody2D
     delegate void PlayerFiredBullet(PistolBullet bullet, Vector2 position, Vector2 direction);
 
 
-    private Node playerWeapon;
+    public Node2D playerWeapon;
 
     public override void _Ready()
     {
         base._Ready();
-        playerWeapon = GetNode<Node>("Weapon");
+        playerWeapon = GetNode<Node2D>("Weapon");
+        playerWeapon.Connect("WeaponFired", this, "shoot");
     }
 
     public void GetInput()
@@ -53,9 +54,8 @@ public class Player : KinematicBody2D
         }
     }
 
-    public void HandleBulletSpawned(PistolBullet bulletInstance, Vector2 GunPoint, Vector2 directionToMouse)
-    {
-        EmitSignal("HandleBulletSpawned", bulletInstance, GunPoint, directionToMouse);
+    public void shoot(PistolBullet bulletinstance, Vector2 pos, Vector2 direction){
+        EmitSignal("PlayerFiredBullet", bulletinstance, pos, direction);
     }
 
 }

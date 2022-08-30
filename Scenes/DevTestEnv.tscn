@@ -5,7 +5,7 @@
 [ext_resource path="res://Objects/BulletManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/RootNode.cs" type="Script" id=4]
 
-[node name="DevTestRoot" type="Node2D"]
+[node name="LevelRoot" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
@@ -14,5 +14,3 @@ script = ExtResource( 4 )
 position = Vector2( 205, 6 )
 
 [node name="BulletManager" parent="." instance=ExtResource( 3 )]
-
-[connection signal="PlayerFiredBullet" from="Player" to="BulletManager" method="HandleBulletSpawned"]

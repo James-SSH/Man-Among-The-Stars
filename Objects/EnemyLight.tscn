@@ -1,43 +1,154 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/LE_Weapon.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/EnemyLight.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Textures/LE_Enemy_dev.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/LE_Enemy.cs" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/MuzzleFlash.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/LE_Enemy_Idle.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/LE_Metadata.cs" type="Script" id=5]
+[ext_resource path="res://Assets/Textures/LE_Enemy_Engaged.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/LE_Enemy_Moving.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Pistol.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/LE_AI.cs" type="Script" id=9]
+[ext_resource path="res://Objects/PistolBullet.tscn" type="PackedScene" id=10]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.508, 16.29 )
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 16.254, 16.29 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 15.965, 15.971 )
 
-[node name="EnemyLight" type="KinematicBody2D"]
+[sub_resource type="Animation" id=4]
+resource_name = "Muzzle Flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MuzzleFlash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.692 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MuzzleFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 32.0
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 7 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 7 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "ENGAGED",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 18.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "MOVING",
+"speed": 7.0
+} ]
+
+[node name="EnemyLight" type="KinematicBody2D" groups=["Enemy"]]
 z_index = 1
 script = ExtResource( 2 )
 
-[node name="PlayerGunBarrel" type="Position2D" parent="."]
-position = Vector2( 21, 0 )
-
-[node name="GunDirection" type="Position2D" parent="."]
-position = Vector2( 25, 0 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 4 )
+position = Vector2( -0.254, 0 )
+shape = SubResource( 18 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
-
-[node name="TiggerDiscipline" type="Timer" parent="."]
-wait_time = 0.125
-one_shot = true
-
-[node name="Weapon" type="Node" parent="."]
-script = ExtResource( 1 )
+shape = SubResource( 19 )
 
 [node name="Metadata" type="Node" parent="."]
 script = ExtResource( 5 )
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource( 1 )
+pistolBullet = ExtResource( 10 )
+
+[node name="GunBarrel" type="Position2D" parent="Weapon"]
+position = Vector2( 21, 0 )
+
+[node name="GunDirection" type="Position2D" parent="Weapon"]
+position = Vector2( 25, 0 )
+
+[node name="Gun" type="Sprite" parent="Weapon"]
+visible = false
+position = Vector2( 10.872, 0 )
+z_index = 1
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Weapon"]
+"anims/Muzzle Flash" = SubResource( 4 )
+
+[node name="cooldown" type="Timer" parent="Weapon"]
+wait_time = 0.43
+one_shot = true
+
+[node name="MuzzleFlash" type="Sprite" parent="Weapon"]
+process_priority = 1
+visible = false
+position = Vector2( 38, 0 )
+scale = Vector2( 1, 1.692 )
+texture = ExtResource( 3 )
+
+[node name="AI" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="PDZ" type="Area2D" parent="AI"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AI/PDZ"]
+polygon = PoolVector2Array( 16, 0, 40, -16, 128, -16, 128, 16, 40, 16 )
+
+[node name="FrenchZone" type="Area2D" parent="AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AI/FrenchZone"]
+shape = SubResource( 3 )
+
+[node name="LE_Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+animation = "IDLE"
+
+[connection signal="body_entered" from="Area2D" to="AI" method="ISurrender"]
+[connection signal="body_entered" from="AI/PDZ" to="AI" method="PlayerDetected"]
+[connection signal="body_entered" from="AI/FrenchZone" to="AI" method="ISurrender"]

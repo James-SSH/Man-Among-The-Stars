@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/Man Among The Stars.csproj": {}
+    "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj": {}
   },
   "projects": {
-    "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/Man Among The Stars.csproj": {
+    "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/Man Among The Stars.csproj",
+        "projectUniqueName": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj",
         "projectName": "Man Among The Stars",
-        "projectPath": "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/Man Among The Stars.csproj",
-        "packagesPath": "/home/james0ssh/.nuget/packages/",
-        "outputPath": "/home/james0ssh/Documents/Coding/CS/Man-Among-The-Stars/.mono/temp/obj/",
+        "projectPath": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/Man Among The Stars.csproj",
+        "packagesPath": "/home/james-ssh/.nuget/packages/",
+        "outputPath": "/home/james-ssh/Documents/Coding/C#/Man-Among-The-Stars/.mono/temp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/james0ssh/.nuget/NuGet/NuGet.Config"
+          "/home/james-ssh/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net472"

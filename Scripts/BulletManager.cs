@@ -8,6 +8,7 @@ public class BulletManager : Node2D
     {
         AddChild(bullet);
         GD.Print("bulletSpawned");
+        GD.Print(bullet, position, direction);
         this.GlobalPosition = position;
         bullet.setDirection(direction);
     }

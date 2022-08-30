@@ -1,13 +1,10 @@
 using Godot;
 using System;
 
-public class PlayerWeapon : Node
+public class PlayerWeapon : Node2D
 {
     public PackedScene heldWeapon;
     private KinematicBody2D player;
-    private Godot.Collections.Dictionary<String, Vector2> WeaponPos;
-    private Godot.Collections.Dictionary<String, int> Refire;
-    private Godot.Collections.Dictionary<String, PackedScene> GunModels;
     [Export] public PackedScene BulletType;
     private Position2D GunPoint;
     private Position2D GunDirection;
@@ -23,9 +20,9 @@ public class PlayerWeapon : Node
         base._Ready();
         GunPoint = GetNode<Position2D>("PlayerGunBarrel");
         GunDirection = GetNode<Position2D>("GunDirection");
-        cooldown = GetNode<Timer>("TriggerDiscipline");
-        weapon = GetNode<Node>("Weapon");
-        initaliseWeapons();
+        cooldown = GetNode<Timer>("TiggerDiscipline");
+        weapon = this;
+        //initaliseWeapons();
     }
 
     private void initaliseWeapons()
@@ -42,7 +39,7 @@ public class PlayerWeapon : Node
             EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
             cooldown.Start();
             GD.Print("Cooldown Started");
-            GD.Print(cooldown);
+            GD.Print(bulletInstance, GunPoint.GlobalPosition, directionToMouse);
         }
     }
 }
