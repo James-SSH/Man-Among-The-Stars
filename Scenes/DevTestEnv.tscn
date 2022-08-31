@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/EnemyLight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/BulletManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/RootNode.cs" type="Script" id=4]
+[ext_resource path="res://Objects/EnemyMedium.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/EnemyHeavy.tscn" type="PackedScene" id=6]
 
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource( 4 )
@@ -14,3 +16,9 @@ script = ExtResource( 4 )
 position = Vector2( 205, 6 )
 
 [node name="BulletManager" parent="." instance=ExtResource( 3 )]
+
+[node name="EnemyMedium" parent="." instance=ExtResource( 5 )]
+position = Vector2( -294, 107 )
+
+[node name="EnemyHeavy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 62, 136 )

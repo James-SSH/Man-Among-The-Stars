@@ -7,12 +7,23 @@ public class LE_Weapon : Node2D
     [Export]
     public PackedScene Bullet;
     public AnimationPlayer animplayer;
+    public Node globalSignals;
+    public KinematicBody2D player;
+    public Position2D GunPoint;
+    public Position2D Gunbarrel;
+    public KinematicBody2D Enemy;
 
     public override void _Ready()
     {
         base._Ready();
         cooldown = GetNode<Timer>("cooldown");
         animplayer = GetNode<AnimationPlayer>("AnimationPlayer");
+        player = GetTree().Root.GetNode<Node2D>("LevelRoot").GetNode<KinematicBody2D>("Player");
+        GunPoint = GetNode<Position2D>("GunBarrel");
+        Gunbarrel = GetNode<Position2D>("GunDirection");
+        Enemy = GetParent<KinematicBody2D>();
+        cooldown.WaitTime = 0.5f;
+        globalSignals = GetTree().Root.GetNode<Node>("GlobalSignals");
     }
 
     public void Shoot()
@@ -21,6 +32,8 @@ public class LE_Weapon : Node2D
         {
             Bullet bullet = (Bullet)Bullet.Instance();
             animplayer.Play("Muzzle Flash");
+            globalSignals.EmitSignal("WeaponFired", bullet, GunPoint.GlobalPosition, Enemy.Position.DirectionTo(player.GlobalPosition));
+            cooldown.Start();
         }
     }
 }

@@ -1,15 +1,22 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/RootNode.cs" type="Script" id=2]
 [ext_resource path="res://Objects/BulletManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Textures/LE_Enemy_Idle.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/LE_Metadata.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/ME_Enemy.cs" type="Script" id=5]
 [ext_resource path="res://Assets/Textures/LE_Enemy_Engaged.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Textures/LE_Enemy_Moving.png" type="Texture" id=7]
-[ext_resource path="res://Objects/EnemyMedium.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Textures/ME_Enemy_Engaged.png" type="Texture" id=8]
 [ext_resource path="res://Objects/TileMap.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scripts/LE_Enemy.cs" type="Script" id=10]
+[ext_resource path="res://Assets/Textures/ME_Enemy_Moving.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/ME_Enemy_Idle.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Idle.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/TutorialNextLevel.cs" type="Script" id=14]
+[ext_resource path="res://Scripts/HE_Enemy.cs" type="Script" id=15]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Moving.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Engaged.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 16.254, 16.29 )
@@ -55,6 +62,97 @@ animations = [ {
 "speed": 7.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.508, 16.29 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.965, 15.971 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 11 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 11 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 11 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 11 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "ENGAGED",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 4 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "MOVING",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 16.508, 16.29 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 15.965, 15.971 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 16 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 16 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 16 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 16 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "ENGAGED",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "MOVING",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 85, 75.5 )
+
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -71,13 +169,15 @@ text = "This is a
 Light Enemy
 
 Health: 50
-Damage: 10
 Speed; P80, R100
-Range: 25u
+Range: 128u
 Potential Items: 
 - Keycard
 - Gun
 - Ammo"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 238, 278 )
@@ -97,17 +197,61 @@ shape = SubResource( 18 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyLight/Area2D"]
 shape = SubResource( 19 )
 
-[node name="Metadata" type="Node" parent="EnemyLight"]
-script = ExtResource( 5 )
-
 [node name="LE_Sprite" type="AnimatedSprite" parent="EnemyLight"]
 frames = SubResource( 10 )
 animation = "IDLE"
 
-[node name="EnemyMedium" parent="." instance=ExtResource( 8 )]
+[node name="EnemyMedium" type="KinematicBody2D" parent="."]
 position = Vector2( 527, 160 )
 rotation = 1.5708
+z_index = 1
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMedium"]
+shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="EnemyMedium"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMedium/Area2D"]
+shape = SubResource( 2 )
+
+[node name="ME_Sprite" type="AnimatedSprite" parent="EnemyMedium"]
+frames = SubResource( 24 )
+animation = "IDLE"
+
+[node name="EnemyHeavy" type="KinematicBody2D" parent="EnemyMedium"]
+position = Vector2( -2.362, -139.014 )
+z_index = 1
+script = ExtResource( 15 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMedium/EnemyHeavy"]
+shape = SubResource( 25 )
+
+[node name="Area2D" type="Area2D" parent="EnemyMedium/EnemyHeavy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyMedium/EnemyHeavy/Area2D"]
+shape = SubResource( 26 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="EnemyMedium/EnemyHeavy"]
+frames = SubResource( 32 )
+animation = "MOVING"
 
 [node name="Label2" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 924, 486 )
+shape = SubResource( 33 )
+script = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="Area2D"]
+margin_left = 840.0
+margin_top = 392.0
+margin_right = 880.0
+margin_bottom = 406.0
+text = "EXIT"
+
+[connection signal="body_entered" from="Area2D" to="." method="NextLevel"]

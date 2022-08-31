@@ -10,12 +10,14 @@ public class Player : KinematicBody2D
 
     public Node2D playerWeapon;
     public Node globalSignals;
+    public Node metaData;
 
     public override void _Ready()
     {
         base._Ready();
         playerWeapon = GetNode<Node2D>("Weapon");
         globalSignals = GetTree().Root.GetNode<Node>("GlobalSignals");
+        metaData = GetNode<Node>("Metadata");
     }
 
     public void GetInput()
@@ -50,6 +52,11 @@ public class Player : KinematicBody2D
         {
             playerWeapon.Call("Shoot");
         }
+    }
+
+    public void hit()
+    {
+        metaData.Call("HandleHit");
     }
 
 }

@@ -1,9 +1,165 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/RootNode.cs" type="Script" id=1]
 [ext_resource path="res://Objects/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Idle.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/SMG.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Textures/MuzzleFlash.png" type="Texture" id=6]
+[ext_resource path="res://Objects/BulletManager.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/HE_AI.cs" type="Script" id=8]
+[ext_resource path="res://Scripts/HE_Enemy.cs" type="Script" id=9]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Moving.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/HE_Enemy_Engaged.png" type="Texture" id=11]
+[ext_resource path="res://Scripts/HE_Metadata.cs" type="Script" id=12]
+[ext_resource path="res://Scripts/HE_Weapon.cs" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 16.508, 16.29 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 15.965, 15.971 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Muzzle Flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("MuzzleFlash:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.692 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MuzzleFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 10 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 10 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 10 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "ENGAGED",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "MOVING",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=34]
+radius = 511.25
+
+[sub_resource type="CircleShape2D" id=33]
+radius = 32.0
 
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="TileMap" parent="." instance=ExtResource( 2 )]
+
+[node name="THE BOSS" type="KinematicBody2D" parent="."]
+position = Vector2( 503, 293 )
+z_index = 1
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="THE BOSS"]
+shape = SubResource( 25 )
+
+[node name="Area2D" type="Area2D" parent="THE BOSS"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="THE BOSS/Area2D"]
+shape = SubResource( 26 )
+
+[node name="Metadata" type="Node" parent="THE BOSS"]
+script = ExtResource( 12 )
+
+[node name="Weapon" type="Node2D" parent="THE BOSS"]
+script = ExtResource( 13 )
+
+[node name="PlayerGunBarrel" type="Position2D" parent="THE BOSS/Weapon"]
+position = Vector2( 21, 0 )
+
+[node name="cooldown" type="Timer" parent="THE BOSS/Weapon"]
+wait_time = 0.125
+one_shot = true
+
+[node name="GunDirection" type="Position2D" parent="THE BOSS/Weapon"]
+position = Vector2( 25, 0 )
+
+[node name="Gun" type="Sprite" parent="THE BOSS/Weapon"]
+visible = false
+position = Vector2( 4, 2 )
+z_index = 1
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="THE BOSS/Weapon"]
+"anims/Muzzle Flash" = SubResource( 3 )
+
+[node name="MuzzleFlash" type="Sprite" parent="THE BOSS/Weapon"]
+process_priority = 1
+visible = false
+position = Vector2( 38, 0 )
+scale = Vector2( 1, 1.692 )
+texture = ExtResource( 6 )
+
+[node name="HE_Sprite" type="AnimatedSprite" parent="THE BOSS"]
+frames = SubResource( 32 )
+animation = "MOVING"
+
+[node name="AI" type="Node2D" parent="THE BOSS"]
+script = ExtResource( 8 )
+
+[node name="PDZ" type="Area2D" parent="THE BOSS/AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="THE BOSS/AI/PDZ"]
+shape = SubResource( 34 )
+
+[node name="FrenchZone" type="Area2D" parent="THE BOSS/AI"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="THE BOSS/AI/FrenchZone"]
+shape = SubResource( 33 )
+
+[node name="BulletManager" parent="." instance=ExtResource( 7 )]
+
+[node name="Player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 349, 305 )

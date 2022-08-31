@@ -3,46 +3,43 @@ using System;
 
 public class LE_Metadata : Node
 {
-	private short Health = 50;
-	private KinematicBody2D EnemyLight;
+    public short Health = 50;
+    public KinematicBody2D Enemy;
 
-	public override void _Ready()
-	{
-		base._Ready();
-		EnemyLight = GetParent<KinematicBody2D>();
-	}
+    public override void _Ready()
+    {
+        base._Ready();
 
-	public void handlePistolHit() {
-		Health -= 10;
-		if (Health <= 0){
-			DropLE();
-			EnemyLight.QueueFree();
-		}
-	}
+    }
 
-	public void handleSMGHit(){
-		Health -= 5;
-		if (Health <= 0){
-			DropLE();
-			EnemyLight.QueueFree();
-		}
-	}
+    public void SetParent(KinematicBody2D enemy)
+    {
+        Enemy = enemy;
+    }
 
-	public void handleARHit(){
-		Health -= 15;
-		if (Health <= 0){
-			DropLE();
-			EnemyLight.QueueFree();
-		}
-	}
-
-	public void handleHyperRayHit(){
-		DropLE();
-		EnemyLight.QueueFree();
-	}
-
-	public void DropLE(){
-
-	}
-
+    public void HandleHit(int bulletID)
+    {
+        if (Health >= 0)
+        {
+            switch (bulletID)
+            {
+                case 0:
+                    Health -= 10;
+                    break;
+                case 1:
+                    Health -= 5;
+                    break;
+                case 2:
+                    Health -= 15;
+                    break;
+                case 3:
+                    Enemy.QueueFree();
+                    break;
+            }
+        }
+        else
+        {
+            Enemy.QueueFree();
+        }
+    }
 }

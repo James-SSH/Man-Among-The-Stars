@@ -104,7 +104,7 @@ script = ExtResource( 5 )
 
 [node name="Weapon" type="Node2D" parent="."]
 script = ExtResource( 1 )
-pistolBullet = ExtResource( 10 )
+Bullet = ExtResource( 10 )
 
 [node name="GunBarrel" type="Position2D" parent="Weapon"]
 position = Vector2( 21, 0 )
@@ -129,7 +129,6 @@ one_shot = true
 process_priority = 1
 visible = false
 position = Vector2( 38, 0 )
-scale = Vector2( 1, 1.692 )
 texture = ExtResource( 3 )
 
 [node name="AI" type="Node2D" parent="."]

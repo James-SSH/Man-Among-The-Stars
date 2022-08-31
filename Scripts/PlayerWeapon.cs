@@ -33,14 +33,14 @@ public class PlayerWeapon : Node2D
         cooldown = GetNode<Timer>("TiggerDiscipline");
         weapon = this;
         globalSignals = GetTree().Root.GetNode<Node>("GlobalSignals");
-        for (int i = 0; i < gunNames.GetLength(4); i++)
-        {
-            guns[i] = GetNode<Sprite>(gunNames[i]);
-            if (guns[i].Visible && guns[i] != null)
-            {
-                BulletID = (BulletIdentifier)i;
-            }
-        }
+        // for (int i = 0; i < gunNames.GetLength(4); i++)
+        // {
+        //     guns[i] = GetNode<Sprite>(gunNames[i]);
+        //     if (guns[i].Visible && guns[i] != null)
+        //     {
+        //         BulletID = (BulletIdentifier)i;
+        //     }
+        // }
     }
 
     private void initaliseWeapons()
@@ -54,7 +54,7 @@ public class PlayerWeapon : Node2D
         {
             Bullet bulletInstance = (Bullet)BulletType.Instance();
             Vector2 directionToMouse = (GunDirection.GlobalPosition - GunPoint.GlobalPosition).Normalized();
-            globalSignals.EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse, BulletID);
+            globalSignals.EmitSignal("WeaponFired", bulletInstance, GunPoint.GlobalPosition, directionToMouse);
             cooldown.Start();
             GD.Print("Cooldown Started");
         }
